@@ -20,12 +20,25 @@ public class TicTacToeView {
         
         /* Prompt the player to enter the row and the column of their next move.
            Return as a TicTacToeMove object. */
+
+        if(isXTurn){
+            System.out.println("Player 1 (X) Move: ");
+        }
+        else{
+            System.out.println("Player 2 (O) Move: ");
+        }
+         
+        System.out.print("Enter the row and column numbers, separated by a space: ");
+        Scanner scanner = new Scanner(System.in);
+        String[] coordinates = scanner.nextLine().split(" ");
+        int row = Integer.parseInt(coordinates[0]);
+        int col = Integer.parseInt(coordinates[1]);
+        TicTacToeMove move = new TicTacToeMove(row, col);
         
-        // INSERT YOUR CODE HERE
-
-        return null; // remove this line later!
-
+        return move;
     }
+
+    
 
     public void showInputError() {
 
