@@ -5,7 +5,6 @@ public class TicTacToeModel {
     private Mark[][] board; /* Game board */
     private boolean xTurn;  /* True if X is current player */
     private int width;      /* Size of game board */
-    
     /* ENUM TYPE DEFINITIONS */
     
     /* Mark (represents X, O, or an empty square */

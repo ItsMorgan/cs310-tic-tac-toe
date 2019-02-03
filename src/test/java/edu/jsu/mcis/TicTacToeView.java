@@ -1,18 +1,17 @@
 package edu.jsu.mcis;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 
 public class TicTacToeView extends JPanel {
     
     private final TicTacToeController controller;
 
-    public final JButton[][] board;
+    private final JButton[][] board;
     private final JPanel squaresPanel;
     private final JLabel resultLabel;
 
-    public TicTacToeView(int width, TicTacToeController controller) {
+    public TicTacToeView(TicTacToeController controller, int width) {
 
         this.controller = controller;
 
@@ -27,7 +26,7 @@ public class TicTacToeView extends JPanel {
             for (int col = 0; col < width; col++) {
                 
                 board[row][col] = new JButton(); 
-                board[row][col].addActionListener((ActionListener) controller);
+                board[row][col].addActionListener(controller);
                 board[row][col].setName("Square" + row + col);
                 board[row][col].setPreferredSize(new Dimension(64,64));
                 squaresPanel.add(board[row][col]);
@@ -47,23 +46,7 @@ public class TicTacToeView extends JPanel {
 
         /* Refresh the GUI with updated data from the Model (via the Controller) */
 
-            for (int i = 0; i < board.length; i++) {
-
-            for (int j = 0; j < board[i].length; j++) {
-
-                String k = controller.getMarkAsString(i, j);
-
-                if (k.equals("X") || k.equals("O")) {
-
-                    board[i][j].setText(k);
-
-                    board[i][j].setEnabled(false);
-
-                }
-
-            }
-
-        }
+        // INSERT YOUR CODE HERE
 
     }
     
@@ -71,14 +54,8 @@ public class TicTacToeView extends JPanel {
 
         /* Disable buttons (to disallow input after game is over) */
     
-            for (JButton[] i : board) {
-
-            for (JButton j : i) {
-
-                j.setEnabled(false);
-
-            }
-        }           
+        // INSERT YOUR CODE HERE
+            
     }
         
     public void showResult(String message) {
