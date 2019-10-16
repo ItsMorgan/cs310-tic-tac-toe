@@ -31,5 +31,31 @@ TicTacToeView (view) and TicTacToeMove (move)
 TicTacToeModel (model)
         The model is essentially the brain of the program, so this class contains many components. Many varibles are declared in the beginning of this class including the board size, a boolean to determine which player's turn is next, and the board which is a two dimensional array of marks. A mark is a variable matched to a string, but it is declared in a separate function which can be called to retrieve those strings. The specific strings in the function are "X", "O", and "-". By using the same method, the results of the game after completion are stored. In the constructor of the model, the board size is checked, then the boolean that decides which player's turn is next is switched to player one because this is the first turn. Next, the two dimensional array of marks is declared using the board size to set the length of the rows and columns. A nested for loop fills each space in the array with "-" marks. The "makeMark()" function is used for making a mark on the game board by accepting a row and column number which is equivalent to the X and Y in a graph. This function further checks the player's selection by using the "isValidSquare()" and "isSquareMarked()" functions. It also checks that the mark is within the bounds of the board, after validating the player's selection. The second function checks space being marked is empty or contains the mark of another player. If the player's mark passes all the checks, then the function marks the board with an "X" or an "O" based on which player's turn it is. Additionally, the "getMark()" function returns the mark requested in the parameters. The "isTurn()" function returns a boolean indicating which player is playing, and the "getWidth()" function returns the size of the game board.
         
-To determine a Winner, the. "getResult()" function is called by the "isGameOver()" function in the controller. The "getResult()" function returns the results: "X, O, TIE or NONE" based on two other functions called "isMarkWin()" and "isTie()." These two functions contain the code for setting the win and tie conditions. By using nested if statements inside nested for loops, each square in the game board is checked from left to right, then up to down. When the row and column numbers equal the number of times in the board size in a row
+To determine a Winner, the. "getResult()" function is called by the "isGameOver()" function in the controller. The "getResult()" function returns the results: "X, O, TIE or NONE" based on two other functions called "isMarkWin()" and "isTie()." These two functions contain the code for setting the win and tie conditions. By using nested if statements inside nested for loops, each square in the game board is checked from left to right, then up to down. When the row and column numbers equal the number of times in the board size in a row, a right diagonal win condition is met. When the row and column numbers added to each other equal one subtracted by the board size as manytimes as the board size in a row, a left diagonal win condition is met. The horizontal and vertical counters are set as the diagonals are being tested. A counter is addedto the vertical or horizontal variables if there are any of the same row numbers or column numbers. A horizontal or vertical win condition is met when the number of identical row numbers and column numbers equal the size of the game board. The "isTie()" function allows the game board to be iterated through, and if there are no empty spaces or winners, TRUE is returned to indicate a TIE.
+
+The game board is constructed in the "toString()" method of the Model. The main components of this function are String Builders. The column headers are appended here by a for loop. After this, a new line is added and a nested for loop iterates through the game board and appends each row at a time from left to right by adding the row number, row marks then another new line. A new line is also added before the string is returned.
+
+Here is example output from this program:
+
+        Player 1 (X) Move:
+	Enter the row and column numbers, separated by a space: 1 1
+
+	  012
+	0 -X-
+	1 -XO
+	2 ---
+
+	Player 2 (O) Move:
+	Enter the row and column numbers, separated by a space: -1 2
+	Entered location is invalid, already marked, or out of bounds.
+
+
+	  012
+	0 -X-
+	1 -XO
+	2 ---
+
+	Player 2 (O) Move:
+	Enter the row and column numbers, separated by a space:
+
 
